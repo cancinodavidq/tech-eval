@@ -1,0 +1,183 @@
+<svg width="680" viewBox="0 0 680 840" role="img" xmlns="http://www.w3.org/2000/svg" style="font-family: ui-sans-serif, system-ui, sans-serif; background: white;">
+<title>RAG vanilla — C4 Container diagram</title>
+<desc>RAG pipeline: user query flows through orchestrator, hybrid retriever with semantic and keyword search, metadata filter, relevant documents feed knowledge base and augmented prompt, LLM generates response with inline citations, online eval loop with RAGAS and ALCE.</desc>
+<defs>
+  <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </marker>
+  <style>
+    text { font-family: ui-sans-serif, system-ui, sans-serif; }
+    .th  { font-size: 14px; font-weight: 500; fill: #2C2C2A; }
+    .ts  { font-size: 12px; font-weight: 400; fill: #5F5E5A; }
+    .tsi { font-size: 11px; font-weight: 400; fill: #888780; font-style: italic; }
+    .c-gray   rect { fill: #F1EFE8; stroke: #888780; }
+    .c-gray   .th  { fill: #2C2C2A; }
+    .c-purple rect { fill: #EEEDFE; stroke: #534AB7; }
+    .c-purple .th  { fill: #3C3489; }
+    .c-purple .ts  { fill: #534AB7; }
+    .c-teal   rect { fill: #E1F5EE; stroke: #0F6E56; }
+    .c-teal   .th  { fill: #085041; }
+    .c-teal   .ts  { fill: #0F6E56; }
+    .c-coral  rect { fill: #FAECE7; stroke: #993C1D; }
+    .c-coral  .th  { fill: #712B13; }
+    .c-coral  .ts  { fill: #993C1D; }
+    .c-blue   rect { fill: #E6F1FB; stroke: #185FA5; }
+    .c-blue   .th  { fill: #0C447C; }
+    .c-blue   .ts  { fill: #185FA5; }
+    .c-amber  rect { fill: #FAEEDA; stroke: #854F0B; }
+    .c-amber  .th  { fill: #633806; }
+    .c-amber  .ts  { fill: #854F0B; }
+  </style>
+</defs>
+
+<!-- ═══════════════════════════════════════════
+     RAILS (drawn first, behind everything)
+     LEFT RAIL  x=24
+     RIGHT RAIL x=656
+════════════════════════════════════════════ -->
+
+<!-- LEFT RAIL: Orchestrator → Evals async trace -->
+<path d="M240 142 L24 142 L24 702" fill="none" stroke="#534AB7" stroke-width="0.5" stroke-dasharray="4 3" marker-end="url(#arrow)"/>
+<!-- LEFT RAIL label -->
+<text class="tsi" x="14" y="440" text-anchor="middle" transform="rotate(-90 14 440)">async trace · feedback</text>
+
+<!-- LEFT RAIL: KB → Semantic (dashed blue) -->
+<path d="M220 532 L24 532" fill="none" stroke="#185FA5" stroke-width="0.5" stroke-dasharray="4 3"/>
+<!-- joins at x=24, already goes up to y=142; branch to y=250 -->
+<path d="M24 250 L70 250" fill="none" stroke="#185FA5" stroke-width="0.5" stroke-dasharray="4 3" marker-end="url(#arrow)"/>
+
+<!-- RIGHT RAIL: LLM response → Orchestrator -->
+<path d="M630 532 L656 532 L656 142 L442 142" fill="none" stroke="#534AB7" stroke-width="0.5" marker-end="url(#arrow)"/>
+<text class="tsi" x="666" y="360" text-anchor="middle" transform="rotate(-90 666 360)">response + citations</text>
+
+<!-- ═══════════════════════════════════════════
+     R1 — USER   y=30 h=52 bottom=82
+════════════════════════════════════════════ -->
+<g class="c-gray">
+  <rect x="240" y="30" width="200" height="52" rx="8" stroke-width="0.5"/>
+  <text class="th" x="340" y="50" text-anchor="middle" dominant-baseline="central">User</text>
+  <text class="ts" x="340" y="68" text-anchor="middle" dominant-baseline="central">Natural language query</text>
+</g>
+
+<!-- arrow 1: User → Orch -->
+<line x1="340" y1="82" x2="340" y2="112" stroke="#888780" stroke-width="0.5" marker-end="url(#arrow)"/>
+
+<!-- ═══════════════════════════════════════════
+     R2 — ORCHESTRATOR   y=114 h=52 bottom=166
+════════════════════════════════════════════ -->
+<g class="c-purple">
+  <rect x="240" y="114" width="200" height="52" rx="8" stroke-width="0.5"/>
+  <text class="th" x="340" y="134" text-anchor="middle" dominant-baseline="central">API / Orchestrator</text>
+  <text class="ts" x="340" y="152" text-anchor="middle" dominant-baseline="central">FastAPI · coordinates pipeline</text>
+</g>
+
+<!-- arrow 2: Orch → Retriever boundary -->
+<line x1="340" y1="166" x2="340" y2="196" stroke="#534AB7" stroke-width="0.5" marker-end="url(#arrow)"/>
+
+<!-- ═══════════════════════════════════════════
+     R3 — RETRIEVER BOUNDARY   y=198 h=192 bottom=390
+════════════════════════════════════════════ -->
+<rect x="60" y="198" width="560" height="192" rx="12" fill="none" stroke="#AFA9EC" stroke-width="0.5" stroke-dasharray="5 3"/>
+<text class="ts" x="340" y="216" text-anchor="middle" dominant-baseline="central" style="fill:#534AB7; font-size:11px;">Hybrid retriever · β = 0.7 semantic / 0.3 keyword</text>
+
+<!-- Semantic search: x=72..292 y=226..278 -->
+<g class="c-teal">
+  <rect x="72" y="226" width="220" height="52" rx="8" stroke-width="0.5"/>
+  <text class="th" x="182" y="246" text-anchor="middle" dominant-baseline="central">Semantic search</text>
+  <text class="ts" x="182" y="264" text-anchor="middle" dominant-baseline="central">Embeddings · weight 0.7</text>
+</g>
+
+<!-- Keyword search: x=368..588 y=226..278 -->
+<g class="c-teal">
+  <rect x="368" y="226" width="220" height="52" rx="8" stroke-width="0.5"/>
+  <text class="th" x="478" y="246" text-anchor="middle" dominant-baseline="central">Keyword search</text>
+  <text class="ts" x="478" y="264" text-anchor="middle" dominant-baseline="central">BM25 · weight 0.3</text>
+</g>
+
+<!-- merge lines → Metadata filter center x=340 y=318 -->
+<path d="M182 278 L182 318 L260 318" fill="none" stroke="#0F6E56" stroke-width="0.5" marker-end="url(#arrow)"/>
+<path d="M478 278 L478 318 L420 318" fill="none" stroke="#0F6E56" stroke-width="0.5" marker-end="url(#arrow)"/>
+
+<!-- Metadata filter: x=260..420 y=306..358 -->
+<g class="c-coral">
+  <rect x="260" y="306" width="160" height="52" rx="8" stroke-width="0.5"/>
+  <text class="th" x="340" y="326" text-anchor="middle" dominant-baseline="central">Metadata filter</text>
+  <text class="ts" x="340" y="344" text-anchor="middle" dominant-baseline="central">Top-k chunks</text>
+</g>
+
+<!-- arrow 5: MetaFilter → bottom of boundary -->
+<line x1="340" y1="358" x2="340" y2="390" stroke="#993C1D" stroke-width="0.5" marker-end="url(#arrow)"/>
+<text class="tsi" x="356" y="376" dominant-baseline="central">no reranking</text>
+
+<!-- ═══════════════════════════════════════════
+     R4 — RELEVANT DOCS   y=392 h=52 bottom=444
+════════════════════════════════════════════ -->
+<g class="c-coral">
+  <rect x="240" y="392" width="200" height="52" rx="8" stroke-width="0.5"/>
+  <text class="th" x="340" y="412" text-anchor="middle" dominant-baseline="central">Relevant documents</text>
+  <text class="ts" x="340" y="430" text-anchor="middle" dominant-baseline="central">Retrieved chunks</text>
+</g>
+
+<!-- arrow 7: RelevantDocs → KB -->
+<line x1="340" y1="444" x2="340" y2="472" stroke="#993C1D" stroke-width="0.5" marker-end="url(#arrow)"/>
+
+<!-- arrow 8: RelevantDocs → AugPrompt (right branch) -->
+<path d="M440 418 L468 418" fill="none" stroke="#534AB7" stroke-width="0.5" marker-end="url(#arrow)"/>
+
+<!-- ═══════════════════════════════════════════
+     R5 — KNOWLEDGE BASE   y=474 h=52 bottom=526
+════════════════════════════════════════════ -->
+<g class="c-blue">
+  <rect x="220" y="474" width="220" height="52" rx="8" stroke-width="0.5"/>
+  <text class="th" x="330" y="494" text-anchor="middle" dominant-baseline="central">Knowledge base</text>
+  <text class="ts" x="330" y="512" text-anchor="middle" dominant-baseline="central">Fixed chunking · vector store</text>
+</g>
+
+<!-- ═══════════════════════════════════════════
+     RIGHT BRANCH
+     RB1 — AUGMENTED PROMPT   x=470..630 y=394 h=52 bottom=446
+     RB2 — LLM                x=470..630 y=474 h=52 bottom=526
+════════════════════════════════════════════ -->
+<g class="c-purple">
+  <rect x="470" y="394" width="160" height="52" rx="8" stroke-width="0.5"/>
+  <text class="th" x="550" y="412" text-anchor="middle" dominant-baseline="central">Augmented prompt</text>
+  <text class="ts" x="550" y="430" text-anchor="middle" dominant-baseline="central">User query + RD</text>
+</g>
+
+<!-- arrow 9: AugPrompt → LLM -->
+<line x1="550" y1="446" x2="550" y2="472" stroke="#534AB7" stroke-width="0.5" marker-end="url(#arrow)"/>
+
+<g class="c-purple">
+  <rect x="470" y="474" width="160" height="52" rx="8" stroke-width="0.5"/>
+  <text class="th" x="550" y="494" text-anchor="middle" dominant-baseline="central">LLM</text>
+  <text class="ts" x="550" y="512" text-anchor="middle" dominant-baseline="central">Inline citations [1][2]</text>
+</g>
+
+<!-- ═══════════════════════════════════════════
+     EVALS BOUNDARY   y=560 h=220 bottom=780
+════════════════════════════════════════════ -->
+<rect x="60" y="560" width="560" height="220" rx="12" fill="none" stroke="#FAC775" stroke-width="0.5" stroke-dasharray="5 3"/>
+<text class="ts" x="340" y="578" text-anchor="middle" dominant-baseline="central" style="fill:#854F0B; font-size:11px;">Evals service · online loop over real traffic</text>
+
+<!-- RAGAS: x=80..320 y=590..700 -->
+<g class="c-amber">
+  <rect x="80" y="590" width="240" height="110" rx="8" stroke-width="0.5"/>
+  <text class="th" x="200" y="616" text-anchor="middle" dominant-baseline="central">RAGAS</text>
+  <text class="ts" x="200" y="638" text-anchor="middle" dominant-baseline="central">Precision · Recall</text>
+  <text class="ts" x="200" y="656" text-anchor="middle" dominant-baseline="central">Recall@k · MAP</text>
+  <text class="ts" x="200" y="674" text-anchor="middle" dominant-baseline="central">Requires ground truth</text>
+</g>
+
+<!-- ALCE: x=360..600 y=590..700 -->
+<g class="c-amber">
+  <rect x="360" y="590" width="240" height="110" rx="8" stroke-width="0.5"/>
+  <text class="th" x="480" y="616" text-anchor="middle" dominant-baseline="central">ALCE</text>
+  <text class="ts" x="480" y="638" text-anchor="middle" dominant-baseline="central">Citation precision</text>
+  <text class="ts" x="480" y="656" text-anchor="middle" dominant-baseline="central">Citation recall</text>
+  <text class="ts" x="480" y="674" text-anchor="middle" dominant-baseline="central">Evaluates inline citations</text>
+</g>
+
+<!-- LEFT RAIL arrives at evals top -->
+<text class="tsi" x="80" y="554" dominant-baseline="central" style="fill:#534AB7;">← async trace</text>
+
+</svg>

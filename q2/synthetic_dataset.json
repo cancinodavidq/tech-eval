@@ -1,0 +1,62 @@
+[
+  {
+    "question": "What is the position limit for equity options on a single underlying security under Rule 240.4?",
+    "retrieved_chunks": [
+      "Rule 240.4 establishes position limits for equity options. No person may hold or control, on the same side of the market, more than 250,000 standardized option contracts on any single underlying equity security, subject to exemptions for bona fide hedging.",
+      "17 CFR 240.4(b)(1) defines 'same side of the market' for equity options as the aggregation of long calls and short puts, or short calls and long puts. The 250,000 contract limit applies to each side independently.",
+      "The position limit threshold of 250,000 contracts applies to the most heavily traded equity securities. Securities with lower trading volumes may have reduced limits of 200,000, 75,000, or 50,000 contracts as determined by exchange classifications."
+    ],
+    "generated_answer": "Under Rule 240.4, the position limit for equity options on a single underlying security is 250,000 standardized option contracts per side of the market. This limit applies to the most heavily traded equity securities and aggregates long calls with short puts (and vice versa for the opposite side). Lower limits of 200,000, 75,000, or 50,000 contracts may apply to less actively traded securities.",
+    "ground_truth_answer": "The position limit for equity options on a single underlying security under Rule 240.4 is 250,000 standardized option contracts per side of the market for the most heavily traded securities, with lower limits for less actively traded securities."
+  },
+  {
+    "question": "What are the reporting deadlines for Form 13F filings related to equity derivative positions?",
+    "retrieved_chunks": [
+      "Form 13F is filed by institutional investment managers with at least $100 million in assets under management. The form requires disclosure of holdings in Section 13(f) securities, which include equity securities and certain convertible debt instruments.",
+      "Equity derivative positions subject to position limits must be reported to the applicable exchange or clearing organization on a T+1 basis. Real-time reporting may be required for positions exceeding 90% of the applicable limit threshold.",
+      "17 CFR 249.325 governs the general requirements for Form 13F, including the definition of institutional investment managers and the classification of reportable securities under the Securities Exchange Act of 1934."
+    ],
+    "generated_answer": "I don't have sufficient information in the available materials to answer the specific question about Form 13F filing deadlines for equity derivative positions. The retrieved information covers general Form 13F requirements and position limit reporting to exchanges, but does not specify the filing deadlines you're asking about.",
+    "ground_truth_answer": "Form 13F must be filed within 45 days after the end of each calendar quarter. The form reports equity holdings and certain equity derivative positions as of the last day of the quarter."
+  },
+  {
+    "question": "What is the threshold for aggregate gross notional amount triggering registration as a security-based swap dealer under SEC rules?",
+    "retrieved_chunks": [
+      "Section 3.12 of the Trading Compliance Manual addresses the classification of market participants in derivative markets. Dealers must maintain adequate capital reserves and comply with business conduct standards established under Title VII of Dodd-Frank.",
+      "Registration requirements for various market participant categories are outlined in 17 CFR 240.15, including broker-dealers, municipal securities dealers, and government securities dealers. Each category has distinct capital and operational requirements.",
+      "Equity derivatives trading requires compliance with position reporting under Regulation SBSR. Transactions must be reported to registered security-based swap data repositories within the timeframes specified in Rule 901(a)."
+    ],
+    "generated_answer": "Under SEC rules, the threshold for registration as a security-based swap dealer is $3 billion in aggregate gross notional amount over the prior 12 months for dealing activity with non-Special Entities, or $25 million for dealing activity with Special Entities.",
+    "ground_truth_answer": "The threshold for registration as a security-based swap dealer is $3 billion in aggregate gross notional amount over the prior 12 months for dealing activity with persons that are not Special Entities, or $25 million for dealing activity with Special Entities."
+  },
+  {
+    "question": "What is the margin requirement percentage for uncovered short equity option positions under Regulation T?",
+    "retrieved_chunks": [
+      "Regulation T Section 220.12 establishes margin requirements for options trading in customer accounts. For uncovered short equity options, the margin requirement is 100% of the option proceeds plus 25% of the underlying security's market value, minus any out-of-the-money amount.",
+      "17 CFR 220.12(c)(2) specifies that uncovered short call options require initial margin equal to the option premium received plus 25% of the current market value of the underlying stock. This requirement applies to all customer margin accounts at broker-dealers.",
+      "The Federal Reserve Board's Regulation T sets the baseline margin requirement at 25% of the underlying security value for uncovered short equity options, though exchange rules and broker-dealers may impose higher requirements known as 'house margin.'"
+    ],
+    "generated_answer": "Under Regulation T Section 220.12, the margin requirement for uncovered short equity option positions is 25% of the underlying security's market value, plus 100% of the option premium received, minus any out-of-the-money amount. The baseline percentage is 25% of the underlying security value.",
+    "ground_truth_answer": "The margin requirement for uncovered short equity option positions under Regulation T is 100% of the option premium received plus 20% of the underlying security's market value (subject to a minimum), minus any out-of-the-money amount. The standard percentage is 20%, not 25%."
+  },
+  {
+    "question": "Under what conditions can a trader request an exemption from equity option position limits?",
+    "retrieved_chunks": [
+      "Rule 240.4(e) provides for exemptions from position limits for positions that qualify as bona fide hedging. A bona fide hedge must demonstrably reduce price risk related to a legitimate business activity or existing securities holdings.",
+      "Exemption requests must be submitted in writing to the relevant exchange at least 5 business days prior to exceeding the position limit. The request must include documentation of the underlying hedged position and a risk analysis demonstrating the hedge relationship.",
+      "17 CFR 240.4(e)(3) permits exemptions for market-makers engaged in bona fide market-making activity on an exchange floor or electronic platform. Such exemptions are granted by the exchange and do not require advance written application, but market-makers remain subject to exchange supervision."
+    ],
+    "generated_answer": "Traders can request exemptions from equity option position limits for bona fide hedging positions and for market-making activity. Exemption requests must be submitted in writing to the exchange at least 5 business days in advance and include documentation of the hedged position and risk analysis.",
+    "ground_truth_answer": "Traders can request exemptions from equity option position limits for bona fide hedging positions, which require written requests to the exchange at least 5 business days in advance with supporting documentation. Market-makers receive automatic exemptions for bona fide market-making activity and do not need to file advance written requests, though they remain subject to exchange supervision."
+  },
+  {
+    "question": "How long must broker-dealers retain records of customer equity derivative transactions under Rule 17a-4?",
+    "retrieved_chunks": [
+      "Rule 17a-4 under the Securities Exchange Act of 1934 requires broker-dealers to preserve records of securities transactions. Customer account records, confirmations, and trade blotters related to equity derivatives must be retained for a period of not less than six years.",
+      "17 CFR 240.17a-4(b)(1) mandates that blotters, ledgers, and all other records of original entry related to the broker-dealer's business must be preserved for at least six years, the first two years in an easily accessible place.",
+      "Records of customer complaints and written communications relating to the business of the broker-dealer must be preserved for three years under Rule 17a-4(b)(4). This shorter retention period applies to correspondence but not to transaction records."
+    ],
+    "generated_answer": "Under Rule 17a-4, broker-dealers must retain records of customer equity derivative transactions for at least three years, with the first two years in an easily accessible location. Customer complaints are retained for six years.",
+    "ground_truth_answer": "Under Rule 17a-4, broker-dealers must retain records of customer equity derivative transactions for at least six years, with the first two years in an easily accessible place."
+  }
+]

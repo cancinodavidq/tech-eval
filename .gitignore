@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Secrets — never commit real API keys
+.env
+.env.local
+*.key
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Claude Code local settings (per-machine, not for the repo)
+.claude/
+
+# HuggingFace model cache (downloaded on first run, not part of source)
+.cache/
+~/.cache/huggingface/

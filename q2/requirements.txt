@@ -1,0 +1,16 @@
+# RAG Evaluation Pipeline — runtime dependencies.
+#
+# Tested on Python 3.11. Use lower bounds rather than strict pins so the repo
+# stays installable as upstream releases roll forward. Bump these only if you
+# hit an API incompatibility.
+
+anthropic>=0.40
+sentence-transformers>=3.0
+pandas>=2.0
+numpy>=1.26
+
+# Notebook runtime (only needed if you run/edit rag_evaluation.ipynb;
+# safe to omit if you only call the build script).
+jupyter>=1.0
+ipykernel>=6.0
+nbconvert>=7.0

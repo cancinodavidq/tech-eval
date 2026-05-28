@@ -1,0 +1,17 @@
+{
+  "n_samples": 6,
+  "model": "claude-sonnet-4-5",
+  "domain_prompt": "Financial regulation \u2014 specifically position limits, equity derivatives, and trading compliance. Use realistic regulatory citations (e.g., 'Section 4.2', 'Rule 15c3-3', '17 CFR 240').",
+  "correctness_weights": {
+    "semantic": 0.4,
+    "factual": 0.6
+  },
+  "faithfulness_pass_threshold": 0.8,
+  "context_relevance_mean": 0.7087156625389713,
+  "faithfulness_mean": 0.6180555555555556,
+  "faithfulness_pass_rate": 0.5,
+  "answer_correctness_mean": 0.7027355802059173,
+  "answer_correctness_semantic_mean": 0.9568389505147934,
+  "answer_correctness_factual_mean": 0.5333333333333333,
+  "n_samples_with_errors": 0
+}
